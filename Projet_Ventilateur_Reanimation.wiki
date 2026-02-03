@@ -212,3 +212,4 @@ Les états finaux inacceptables sont :
 
 Ces situations représentent la limite à ne jamais franchir du point de vue de la sûreté du système.
 
+
