@@ -62,7 +62,6 @@ Ces événements constituent les situations que l’étude de sûreté cherche à éviter
 Cette étude repose sur plusieurs limites :
 
 * Modélisation simplifiée du patient (compliance et résistance constantes)
-* Hypothèse de disponibilité rapide du personnel médical
 * Absence de scénarios complexes de défaillances logicielles
 * Non-considération de pannes multiples indépendantes simultanées
 
@@ -98,22 +97,28 @@ Le ventilateur délivre un flux respiratoire dont un ou plusieurs paramètres (pre
 
 Un flux respiratoire inadapté peut entraîner des lésions pulmonaires, une hypoxie sévère ou une défaillance respiratoire aiguë.
 
-=== Initiateur 2 : Absence de système de secours en cas de panne ===
+=== Initiateur 2 : Défaillance du système de basculement automatique vers la source de secours ===
 
 ==== Description ====
 
-En cas de panne du ventilateur principal, aucun système de secours efficace ne permet d’assurer la continuité de la ventilation.
+Dans les établissements hospitaliers, l’alimentation en oxygène est assurée par des réservoirs (tanks) hautement sécurisés et redondants. En cas d’anomalie sur la source principale, les ventilateurs sont conçus pour basculer automatiquement vers une source de secours, garantissant ainsi la continuité de l’apport en oxygène sans nécessiter d’intervention humaine immédiate.
+
+Le système de basculement automatique constitue donc une barrière de sûreté essentielle. Sa défaillance empêche la transition vers la source de secours et peut conduire à une interruption de l’alimentation en oxygène chez un patient totalement dépendant du ventilateur.
+
+Cette étude se concentre volontairement sur ce système de basculement automatique, car sa défaillance constitue le point de départ de scénarios critiques à partir desquels se déclinent d’autres situations dangereuses.
 
 ==== Causes possibles ====
 
-* Absence de ventilation de secours
-* Batterie de secours défaillante
-* Alarme non fonctionnelle
-* Retard ou impossibilité d’intervention humaine
+* Défaillance du mécanisme de basculement automatique
+* Défaut de détection de la perte de la source principale
+* Dysfonctionnement du système de commande
+* Alarme associée non fonctionnelle ou non perceptible
+* Absence de prise en compte de la dégradation de la source principale
 
 ==== Conséquences ====
 
-L’arrêt de la ventilation chez un patient dépendant entraîne une asphyxie rapide pouvant conduire à un arrêt cardio-respiratoire.
+La non-activation du système de secours entraîne une diminution ou une interruption de l’apport en oxygène. Cette situation peut provoquer une hypoxie rapide, évoluant vers un arrêt cardio-respiratoire en l’absence d’intervention humaine rapide.
+
 
 == Effets sur le système ==
 
