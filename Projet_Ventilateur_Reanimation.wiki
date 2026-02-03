@@ -79,7 +79,29 @@ Les hypothèses suivantes sont retenues :
 
 == Initiateurs étudiés ==
 
-=== Initiateur 1 : Flux respiratoire incompatible avec les besoins du patient ===
+=== Initiateur 1 : Défaillance du système automatique de secours ===
+
+==== Description ====
+
+Dans les établissements hospitaliers, l’alimentation en oxygène est assurée par des infrastructures hautement sécurisées et redondantes. Les ventilateurs de réanimation intègrent un système automatique de secours dont le rôle est d’assurer la continuité de l’apport en oxygène et de la ventilation en cas de défaillance de la source principale, sans dépendre d’une intervention humaine immédiate.
+
+Le système automatique de secours constitue une barrière de sûreté essentielle du ventilateur. Sa défaillance empêche le maintien d’une ventilation adéquate lors d’une situation anormale et peut conduire à une interruption partielle ou totale de l’apport en oxygène chez un patient dépendant du dispositif.
+
+L’étude se concentre spécifiquement sur ce système automatique de secours, car il représente un élément central de la sûreté du ventilateur. À partir de sa défaillance peuvent se développer plusieurs scénarios critiques affectant la continuité et la qualité de la ventilation.
+
+==== Causes possibles ====
+
+* Défaillance du système automatique de secours
+* Dysfonctionnement de la logique de commande associée
+* Non-disponibilité effective de la source de secours
+* Défaillance des capteurs permettant la détection d’une situation anormale
+* Défaut d’activation des mécanismes internes de protection
+
+==== Conséquences ====
+
+La défaillance du système automatique de secours entraîne une perte de la capacité du ventilateur à maintenir une ventilation adaptée en situation dégradée. Cette situation peut conduire à une hypoxie rapide, évoluant vers un arrêt cardio-respiratoire en l’absence d’intervention humaine rapide.
+
+=== Initiateur 2 : Flux respiratoire incompatible avec les besoins du patient ===
 
 ==== Description ====
 
@@ -96,28 +118,6 @@ Le ventilateur délivre un flux respiratoire dont un ou plusieurs paramètres (pre
 ==== Conséquences ====
 
 Un flux respiratoire inadapté peut entraîner des lésions pulmonaires, une hypoxie sévère ou une défaillance respiratoire aiguë.
-
-=== Initiateur 2 : Défaillance du système de basculement automatique vers la source de secours ===
-
-==== Description ====
-
-Dans les établissements hospitaliers, l’alimentation en oxygène est assurée par des réservoirs (tanks) hautement sécurisés et redondants. En cas d’anomalie sur la source principale, les ventilateurs sont conçus pour basculer automatiquement vers une source de secours, garantissant ainsi la continuité de l’apport en oxygène sans nécessiter d’intervention humaine immédiate.
-
-Le système de basculement automatique constitue donc une barrière de sûreté essentielle. Sa défaillance empêche la transition vers la source de secours et peut conduire à une interruption de l’alimentation en oxygène chez un patient totalement dépendant du ventilateur.
-
-Cette étude se concentre volontairement sur ce système de basculement automatique, car sa défaillance constitue le point de départ de scénarios critiques à partir desquels se déclinent d’autres situations dangereuses.
-
-==== Causes possibles ====
-
-* Défaillance du mécanisme de basculement automatique
-* Défaut de détection de la perte de la source principale
-* Dysfonctionnement du système de commande
-* Alarme associée non fonctionnelle ou non perceptible
-* Absence de prise en compte de la dégradation de la source principale
-
-==== Conséquences ====
-
-La non-activation du système de secours entraîne une diminution ou une interruption de l’apport en oxygène. Cette situation peut provoquer une hypoxie rapide, évoluant vers un arrêt cardio-respiratoire en l’absence d’intervention humaine rapide.
 
 
 == Effets sur le système ==
