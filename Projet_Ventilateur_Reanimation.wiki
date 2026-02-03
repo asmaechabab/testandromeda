@@ -1,0 +1,214 @@
+= Étude de sûreté – Ventilateur de réanimation =
+
+== Introduction ==
+
+Le ventilateur de réanimation est un dispositif médical critique destiné à assurer ou à assister la respiration de patients en insuffisance respiratoire. En contexte de réanimation, le patient est souvent totalement dépendant de ce système pour sa survie.  
+Toute défaillance, même partielle ou de courte durée, peut entraîner des conséquences immédiates et vitales.
+
+Cette étude de sûreté a pour objectif d’identifier les principaux événements initiateurs pouvant conduire à une défaillance du ventilateur, d’analyser leurs effets sur le système et sur le patient, et d’évaluer les fonctions de sûreté mises en place afin d’éviter des situations inacceptables.
+
+== Description du système ==
+
+=== Système étudié ===
+
+Le système étudié est un ventilateur de réanimation assurant la ventilation mécanique invasive d’un patient intubé.
+
+=== Composants principaux ===
+
+* Source d’air et d’oxygène  
+* Système de mélange air / oxygène  
+* Valve inspiratoire  
+* Valve expiratoire  
+* Circuit patient  
+* Capteurs de pression, de débit et de volume  
+* Unité de commande et de régulation  
+* Interface patient (poumons)
+
+Chaque composant joue un rôle essentiel dans la fourniture d’un flux respiratoire adapté aux besoins physiologiques du patient.
+
+=== Fonction principale ===
+
+La fonction principale du système est d’assurer une respiration continue, efficace et sécurisée du patient en délivrant un flux respiratoire compatible avec la physiologie humaine.
+
+== Événements redoutés ==
+
+Les événements redoutés correspondent aux conséquences graves pouvant porter atteinte à la vie du patient :
+
+* Lésions pulmonaires (barotraumatisme)
+* Hypoxie sévère
+* Arrêt cardio-respiratoire
+* Décès du patient
+
+Ces événements constituent les situations que l’étude de sûreté cherche à éviter.
+
+== Périmètre de l’étude ==
+
+=== Éléments inclus ===
+
+* Fonctionnement nominal et dégradé du ventilateur  
+* Interactions entre les composants internes  
+* Dispositifs automatiques, mécaniques et humains de sûreté  
+* Scénarios initiateurs liés à la ventilation mécanique  
+
+=== Éléments exclus ===
+
+* Physiopathologie détaillée du patient  
+* Traitements médicaux associés  
+* Organisation globale du service hospitalier  
+* Problématiques de cybersécurité du dispositif  
+
+== Limites de l’étude ==
+
+Cette étude repose sur plusieurs limites :
+
+* Modélisation simplifiée du patient (compliance et résistance constantes)
+* Absence de scénarios complexes de défaillances logicielles
+* Non-considération de pannes multiples indépendantes simultanées
+
+Ces limites permettent de conserver une étude maîtrisable et cohérente.
+
+== Hypothèses de l’étude ==
+
+Les hypothèses suivantes sont retenues :
+
+* Le ventilateur est conforme aux normes médicales en vigueur
+* Les capteurs sont fonctionnels en régime nominal
+* Les alarmes sont audibles et visibles
+* Le personnel médical est formé à l’utilisation du ventilateur
+* Une seule défaillance primaire est considérée comme événement initiateur
+
+== Initiateurs étudiés ==
+
+=== Initiateur 1 : Flux respiratoire incompatible avec les besoins du patient ===
+
+==== Description ====
+
+Le ventilateur délivre un flux respiratoire dont un ou plusieurs paramètres (pression, débit, volume ou fraction inspirée en oxygène) sont incompatibles avec les besoins physiologiques humains.
+
+==== Causes possibles ====
+
+* Mauvais réglage des paramètres ventilatoires
+* Défaillance d’une valve inspiratoire ou expiratoire
+* Capteur de pression ou de débit défaillant
+* Fuite dans le circuit patient
+* Modification brutale de l’état pulmonaire du patient
+
+==== Conséquences ====
+
+Un flux respiratoire inadapté peut entraîner des lésions pulmonaires, une hypoxie sévère ou une défaillance respiratoire aiguë.
+
+=== Initiateur 2 : Défaillance du système de basculement automatique vers la source de secours ===
+
+==== Description ====
+
+Dans les établissements hospitaliers, l’alimentation en oxygène est assurée par des réservoirs (tanks) hautement sécurisés et redondants. En cas d’anomalie sur la source principale, les ventilateurs sont conçus pour basculer automatiquement vers une source de secours, garantissant ainsi la continuité de l’apport en oxygène sans nécessiter d’intervention humaine immédiate.
+
+Le système de basculement automatique constitue donc une barrière de sûreté essentielle. Sa défaillance empêche la transition vers la source de secours et peut conduire à une interruption de l’alimentation en oxygène chez un patient totalement dépendant du ventilateur.
+
+Cette étude se concentre volontairement sur ce système de basculement automatique, car sa défaillance constitue le point de départ de scénarios critiques à partir desquels se déclinent d’autres situations dangereuses.
+
+==== Causes possibles ====
+
+* Défaillance du mécanisme de basculement automatique
+* Défaut de détection de la perte de la source principale
+* Dysfonctionnement du système de commande
+* Alarme associée non fonctionnelle ou non perceptible
+* Absence de prise en compte de la dégradation de la source principale
+
+==== Conséquences ====
+
+La non-activation du système de secours entraîne une diminution ou une interruption de l’apport en oxygène. Cette situation peut provoquer une hypoxie rapide, évoluant vers un arrêt cardio-respiratoire en l’absence d’intervention humaine rapide.
+
+
+== Effets sur le système ==
+
+Les initiateurs étudiés entraînent une perte de maîtrise du système et une rupture de la fonction principale de ventilation.
+
+* Flux respiratoire incompatible : mauvaise régulation, pression ou volume dangereux
+* Absence de secours : arrêt total de la ventilation
+
+== Gestion des dysfonctionnements ==
+
+La gestion des dysfonctionnements repose sur une stratégie multi-barrières.
+
+=== Barrières automatiques ===
+
+* Limitation de la pression maximale
+* Garantie d’un volume courant minimal
+* Surveillance de la fraction inspirée en oxygène
+* Détection d’incohérences entre pression, débit et volume
+
+=== Barrières mécaniques ===
+
+* Soupape de surpression
+* Circuit de ventilation de secours
+* Batterie de secours
+
+=== Barrières humaines ===
+
+* Alarmes sonores et visuelles
+* Intervention du personnel médical
+* Ventilation manuelle (BAVU)
+
+== Analyse qualitative – Décomposition fonctionnelle ==
+
+=== Fonction principale ===
+
+FP1 : Assurer la respiration du patient.
+
+=== Fonctions de support ===
+
+* Fournir un flux respiratoire contrôlé
+* Mesurer les paramètres respiratoires
+* Réguler la ventilation
+* Détecter les situations dangereuses
+* Protéger le patient et alerter le personnel
+
+== Fonctions de sûreté ==
+
+* Limiter les paramètres respiratoires à des valeurs physiologiquement acceptables
+* Garantir une ventilation minimale en toutes circonstances
+* Détecter les défaillances des capteurs ou des composants
+* Assurer une ventilation de secours en cas de panne
+* Alerter efficacement le personnel médical
+
+== Esquisse des diagrammes d’analyses qualitatives ==
+
+La logique générale des diagrammes Andromeda est la suivante :
+
+Initiateur  
+? Fonction de sûreté (requirement)  
+? Scénario (plan A, plan B, plan C)  
+? État final
+
+Une flèche verte représente le succès de la barrière de sûreté, tandis qu’une flèche rouge représente son échec.
+
+== Diagrammes de séquence ==
+
+=== Scénario : Flux respiratoire incompatible ===
+
+Flux respiratoire hors limites  
+? Détection par les capteurs  
+? Correction automatique  
+? Limitation mécanique  
+? Intervention humaine  
+
+=== Scénario : Panne sans système de secours ===
+
+Panne du ventilateur  
+? Absence de secours automatique  
+? Alarme  
+? Intervention humaine tardive  
+? Arrêt de la ventilation  
+
+== End States (conséquences inacceptables) ==
+
+Les états finaux inacceptables sont :
+
+* Lésion pulmonaire grave
+* Hypoxie prolongée
+* Arrêt cardio-respiratoire
+* Décès du patient
+
+Ces situations représentent la limite à ne jamais franchir du point de vue de la sûreté du système.
+
