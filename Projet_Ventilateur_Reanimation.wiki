@@ -77,139 +77,132 @@ Les hypothèses suivantes sont retenues :
 * Le personnel médical est formé à l’utilisation du ventilateur
 * Une seule défaillance primaire est considérée comme événement initiateur
 
-== Initiateurs étudiés ==
-
-=== Initiateur 1 : Défaillance du système automatique de secours ===
-
-==== Description ====
-
-Dans les établissements hospitaliers, l’alimentation en oxygène est assurée par des infrastructures hautement sécurisées et redondantes. Les ventilateurs de réanimation intègrent un système automatique de secours dont le rôle est d’assurer la continuité de l’apport en oxygène et de la ventilation en cas de défaillance de la source principale, sans dépendre d’une intervention humaine immédiate.
-
-Le système automatique de secours constitue une barrière de sûreté essentielle du ventilateur. Sa défaillance empêche le maintien d’une ventilation adéquate lors d’une situation anormale et peut conduire à une interruption partielle ou totale de l’apport en oxygène chez un patient dépendant du dispositif.
-
-L’étude se concentre spécifiquement sur ce système automatique de secours, car il représente un élément central de la sûreté du ventilateur. À partir de sa défaillance peuvent se développer plusieurs scénarios critiques affectant la continuité et la qualité de la ventilation.
-
-==== Causes possibles ====
-
-* Défaillance du système automatique de secours
-* Dysfonctionnement de la logique de commande associée
-* Non-disponibilité effective de la source de secours
-* Défaillance des capteurs permettant la détection d’une situation anormale
-* Défaut d’activation des mécanismes internes de protection
-
-==== Conséquences ====
-
-La défaillance du système automatique de secours entraîne une perte de la capacité du ventilateur à maintenir une ventilation adaptée en situation dégradée. Cette situation peut conduire à une hypoxie rapide, évoluant vers un arrêt cardio-respiratoire en l’absence d’intervention humaine rapide.
-
-=== Initiateur 2 : Flux respiratoire incompatible avec les besoins du patient ===
-
-==== Description ====
-
-Le ventilateur délivre un flux respiratoire dont un ou plusieurs paramètres (pression, débit, volume ou fraction inspirée en oxygène) sont incompatibles avec les besoins physiologiques humains.
-
-==== Causes possibles ====
-
-* Mauvais réglage des paramètres ventilatoires
-* Défaillance d’une valve inspiratoire ou expiratoire
-* Capteur de pression ou de débit défaillant
-* Fuite dans le circuit patient
-* Modification brutale de l’état pulmonaire du patient
-
-==== Conséquences ====
-
-Un flux respiratoire inadapté peut entraîner des lésions pulmonaires, une hypoxie sévère ou une défaillance respiratoire aiguë.
-
-
-== Effets sur le système ==
-
-Les initiateurs étudiés entraînent une perte de maîtrise du système et une rupture de la fonction principale de ventilation.
-
-* Flux respiratoire incompatible : mauvaise régulation, pression ou volume dangereux
-* Absence de secours : arrêt total de la ventilation
-
-== Gestion des dysfonctionnements ==
-
-La gestion des dysfonctionnements repose sur une stratégie multi-barrières.
-
-=== Barrières automatiques ===
-
-* Limitation de la pression maximale
-* Garantie d’un volume courant minimal
-* Surveillance de la fraction inspirée en oxygène
-* Détection d’incohérences entre pression, débit et volume
-
-=== Barrières mécaniques ===
-
-* Soupape de surpression
-* Circuit de ventilation de secours
-* Batterie de secours
-
-=== Barrières humaines ===
-
-* Alarmes sonores et visuelles
-* Intervention du personnel médical
-* Ventilation manuelle (BAVU)
-
-== Analyse qualitative – Décomposition fonctionnelle ==
-
-=== Fonction principale ===
-
-FP1 : Assurer la respiration du patient.
-
-=== Fonctions de support ===
-
-* Fournir un flux respiratoire contrôlé
-* Mesurer les paramètres respiratoires
-* Réguler la ventilation
-* Détecter les situations dangereuses
-* Protéger le patient et alerter le personnel
-
-== Fonctions de sûreté ==
-
-* Limiter les paramètres respiratoires à des valeurs physiologiquement acceptables
-* Garantir une ventilation minimale en toutes circonstances
-* Détecter les défaillances des capteurs ou des composants
-* Assurer une ventilation de secours en cas de panne
-* Alerter efficacement le personnel médical
-
 == Esquisse des diagrammes d’analyses qualitatives ==
 
-La logique générale des diagrammes Andromeda est la suivante :
+=== 1ère Organisation du diagramme de séquence ===
 
-Initiateur  
-? Fonction de sûreté (requirement)  
-? Scénario (plan A, plan B, plan C)  
-? État final
+[[Image:file:/C:/Users/Amina/andromeda/workspace/TESTANDROMEDA/Untitled%20design.png|700px]]
 
-Une flèche verte représente le succès de la barrière de sûreté, tandis qu’une flèche rouge représente son échec.
+=== Limites de la présentation ===
 
-== Diagrammes de séquence ==
+Cette présentation ne prend pas en compte le scénario d’une coupure d’alimentation électrique, qui peut entraîner la défaillance de la quasi-totalité des fonctions requises du système. Cette omission conduit à une analyse incomplète du comportement du ventilateur en situation de panne et à une sous-estimation des risques associés.
 
-=== Scénario : Flux respiratoire incompatible ===
+[[Image:file:/C:/Users/Amina/andromeda/workspace/TESTANDROMEDA/2.png|700px]]
 
-Flux respiratoire hors limites  
-? Détection par les capteurs  
-? Correction automatique  
-? Limitation mécanique  
-? Intervention humaine  
+=== Mise en évidence de l’alimentation électrique ===
 
-=== Scénario : Panne sans système de secours ===
+Cette présentation met en valeur l’importance de l’alimentation électrique dans le fonctionnement global du système. 
 
-Panne du ventilateur  
-? Absence de secours automatique  
-? Alarme  
-? Intervention humaine tardive  
-? Arrêt de la ventilation  
+Initialement, le système de gestion des dysfonctionnements des capteurs était organisé de la manière suivante :
 
-== End States (conséquences inacceptables) ==
+[[Image:file:/C:/Users/Amina/andromeda/workspace/TESTANDROMEDA/3.png|500px]]
 
-Les états finaux inacceptables sont :
+• Capteurs principaux : assurent le contrôle des caractéristiques physiques du flux d’oxygène (O?), nécessaires au bon fonctionnement du système de ventilation.
 
-* Lésion pulmonaire grave
-* Hypoxie prolongée
-* Arrêt cardio-respiratoire
-* Décès du patient
+• Capteurs redondants : permettent d’assurer la continuité de la fonction de mesure en cas de défaillance des capteurs principaux. Ils mesurent les paramètres intervenant dans l’évaluation du flux d’O?.
 
-Ces situations représentent la limite à ne jamais franchir du point de vue de la sûreté du système.
+• Systèmes d’alarme : ont pour rôle de se déclencher lors de la défaillance des capteurs principaux afin de signaler l’anomalie et permettre une intervention rapide.
 
+=== Limites de l’interaction initiale des événements ===
 
+Cette manière de faire interagir les événements au sein du système de détection conduit à deux conséquences possibles en cas de défaillance des capteurs principaux. Toutefois, dans cette configuration, la défaillance des systèmes d’alarme ne permet pas de tirer de conclusion sur l’état du système, en particulier celui du ventilateur, ni de déterminer les mesures à entreprendre. Pour cette raison, les liaisons entre les événements ont été modifiées afin de suivre la logique suivante :
+
+[[Image:file:/C:/Users/Amina/andromeda/workspace/TESTANDROMEDA/5.png|500px]]
+
+=== Organisation retenue et logique adoptée ===
+
+Cette disposition permet de regrouper la défaillance des capteurs principaux et des capteurs redondants, dans la mesure où c’est leur défaillance conjointe qui rend le ventilateur inutilisable, et non la seule défaillance des capteurs principaux.
+
+Par ailleurs, à la suite du fonctionnement des systèmes d’alarme, le facteur humain est introduit dans l’analyse. Celui-ci se concrétise par la présence ou l’absence d’un technicien de maintenance, qu’il s’agisse d’un technicien hospitalier ou d’un électricien. Cette intervention humaine conduit alors à deux issues possibles : soit la réparation du ventilateur, soit une défaillance finale du système, correspondant à un état de ventilateur inutilisable.
+
+== Initiateur ==
+
+=== Panne de courant principale ===
+
+Notre système repose sur le fonctionnement d’un ventilateur de réanimation, dont l’objectif principal est d’assurer un apport continu et contrôlé en oxygène (O?) au patient. Le fonctionnement normal du ventilateur dépend directement de la disponibilité de l’alimentation électrique, nécessaire à l’activation des composants essentiels du système.
+
+En effet, l’énergie électrique permet :
+
+le fonctionnement du module de commande électronique,
+
+l’alimentation des capteurs de pression et de débit assurant la régulation du flux respiratoire,
+
+l’activation des systèmes d’alarme signalant toute anomalie critique.
+
+== Effet sur le système ==
+
+Une panne de courant constitue un événement initiateur majeur, dans la mesure où le fonctionnement du ventilateur de réanimation repose entièrement sur l’alimentation électrique. En cas de coupure, le système n’est plus en mesure d’assurer la production du flux d’air ni le contrôle des paramètres respiratoires essentiels, tels que le débit, la pression et le volume d’oxygène délivré au patient.
+
+Cette défaillance entraîne une altération immédiate de la fonction de ventilation, pouvant aller jusqu’à son arrêt complet, et représente ainsi un risque vital critique pour le patient en salle de réanimation, pour lequel la ventilation mécanique est indispensable au maintien des fonctions vitales.
+
+== Gestion du dysfonctionnement ==
+
+La gestion des dysfonctionnements potentiels repose principalement sur la mise en place de sous-systèmes de secours et de redondance. Ces dispositifs ont pour objectif de prendre le relais ou de soutenir les composants principaux assurant la fonction essentielle du système, afin de maintenir un niveau de fonctionnement acceptable en cas de défaillance.
+
+Dans le cas du ventilateur de réanimation, les composants critiques au bon fonctionnement du système, notamment l’alimentation électrique, l’alimentation en oxygène (réservoir d’O?, réseau de distribution, prise murale d’oxygène) ainsi que les capteurs chargés de détecter les anomalies du flux d’oxygène, sont conçus avec des solutions redondantes. Cette architecture permet d’éviter une dépendance à une solution unique et contribue à renforcer la fiabilité globale du système.
+
+Ainsi, en cas de défaillance d’un composant principal, un composant de secours peut assurer temporairement la continuité de la fonction de ventilation, limitant ainsi les conséquences sur le patient. En dernier recours, lorsque les systèmes de secours atteignent leurs limites ou deviennent indisponibles, la détection du dysfonctionnement par les systèmes d’alarme permet d’alerter le personnel médical afin de procéder à une intervention corrective, telle que la réparation ou le remplacement du composant défaillant.
+
+== Diagramme de séquence ==
+
+Le diagramme présenté illustre l’organisation fonctionnelle et les mécanismes de sûreté mis en place pour garantir le fonctionnement d’un ventilateur en salle de réanimation, en particulier face à un événement initiateur de type panne de courant. Il met en évidence les chaînes d’alimentation, les systèmes de détection, les dispositifs de secours ainsi que l’intervention humaine, et montre comment ces éléments interagissent pour éviter l’état « inutilisable » du système.
+
+=== 1. Sous-système d’alimentation électrique ===
+
+La partie supérieure du diagramme correspond au sous-système électrique. L’alimentation principale du ventilateur est assurée par le circuit électrique hospitalier. En cas de défaillance de cette alimentation, des solutions de secours sont prévues, notamment :
+
+une alimentation par groupe électrogène,
+
+une alimentation par batteries internes.
+
+Cette redondance vise à maintenir l’alimentation du ventilateur malgré une panne du réseau principal. Si aucune de ces solutions n’est disponible ou fonctionnelle, le système peut évoluer vers un état inutilisable.
+
+=== 2. Système de détection et de surveillance ===
+
+Le diagramme intègre un système de détection basé sur des capteurs de débit, de pression et de concentration en O?. Ces capteurs assurent la surveillance continue des paramètres respiratoires.
+
+En cas de défaillance d’un capteur principal, des capteurs redondants prennent le relais afin de garantir la continuité de la détection. Une alarme capteurs est déclenchée lorsque des anomalies ou des pannes sont détectées, permettant une réaction rapide.
+
+=== 3. Sous-système d’alimentation en oxygène ===
+
+La partie inférieure du diagramme représente l’alimentation en oxygène. Celle-ci repose sur :
+
+un réservoir principal d’O?,
+
+un réservoir secondaire de secours,
+
+un réseau de tuyauterie complété par une ligne parallèle redondante,
+
+une distribution par prises murales.
+
+Cette architecture garantit la disponibilité de l’oxygène même en cas de défaillance d’un élément du circuit principal.
+
+=== 4. Gestion humaine et actions correctives ===
+
+Le diagramme met également en évidence le rôle du personnel hospitalier et des techniciens de santé. Lorsqu’un dysfonctionnement est détecté (électrique, capteurs ou alimentation en O?), une alerte permet l’intervention humaine :
+
+diagnostic de la panne,
+
+réparation ou remplacement du composant défaillant,
+
+basculement vers une solution de secours si nécessaire.
+
+L’intervention humaine constitue ainsi une barrière de sécurité complémentaire lorsque les dispositifs automatiques atteignent leurs limites.
+
+=== 5. États du système ===
+
+Le fonctionnement global du système peut aboutir à deux états :
+
+Fonctionnel, lorsque au moins une chaîne d’alimentation et de détection reste opérationnelle,
+
+Inutilisable, lorsque les défaillances cumulées dépassent les capacités de secours et de gestion du système.
+
+Les flux représentés en vert traduisent les chemins de fonctionnement nominal ou de secours, tandis que les flux en rouge correspondent aux situations de défaillance ou de dysfonctionnement.
+
+== Arbre d’événement ==
+
+À la suite d’une panne d’alimentation électrique, le fonctionnement du ventilateur dépend du succès ou de l’échec des fonctions de sûreté mises en place. Les différentes situations analysées prennent en compte la disponibilité des sources électriques de secours, la continuité de l’alimentation en oxygène, le bon fonctionnement des capteurs et des systèmes d’alarme, ainsi que l’intervention du personnel hospitalier.
+
+Lorsque les dispositifs de secours assurent la continuité de l’alimentation électrique et de l’apport en oxygène, la fonction de ventilation peut être maintenue et le système reste opérationnel. En revanche, la défaillance successive de plusieurs fonctions critiques, notamment l’absence de secours électrique combinée à une perte de détection ou de distribution d’oxygène, conduit à une perte de la fonction de ventilation, rendant le système inutilisable et compromettant directement la sécurité du patient en salle de réanimation.
+
+Cette analyse met en évidence l’importance de la redondance des systèmes et de la détection précoce des dysfonctionnements pour limiter les conséquences d’une panne de courant sur la prise en charge du patient.
