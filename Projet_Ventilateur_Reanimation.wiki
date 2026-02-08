@@ -206,3 +206,51 @@ Les flux représentés en vert traduisent les chemins de fonctionnement nominal ou
 Lorsque les dispositifs de secours assurent la continuité de l’alimentation électrique et de l’apport en oxygène, la fonction de ventilation peut être maintenue et le système reste opérationnel. En revanche, la défaillance successive de plusieurs fonctions critiques, notamment l’absence de secours électrique combinée à une perte de détection ou de distribution d’oxygène, conduit à une perte de la fonction de ventilation, rendant le système inutilisable et compromettant directement la sécurité du patient en salle de réanimation.
 
 Cette analyse met en évidence l’importance de la redondance des systèmes et de la détection précoce des dysfonctionnements pour limiter les conséquences d’une panne de courant sur la prise en charge du patient.
+
+== Analyse par arbre de défaillance ==
+
+L’analyse par arbre de défaillance a été utilisée afin d’identifier, de structurer et d’évaluer les événements dont la défaillance est susceptible de conduire à la perte de la fonction de ventilation du système. Les arbres de défaillance présentés correspondent aux événements jugés critiques dans l’analyse qualitative, à savoir la défaillance du système de capteurs et la défaillance liée au facteur humain.
+
+Cette approche permet de représenter de manière logique les combinaisons d’événements élémentaires pouvant mener à un événement redouté, tout en mettant en évidence les dépendances fonctionnelles et organisationnelles du système.
+
+=== Arbre de défaillance du système de capteurs ===
+
+Le premier arbre de défaillance est dédié au système de capteurs. L’événement sommet correspond à la défaillance globale de la fonction de détection, considérée comme critique pour le bon fonctionnement du ventilateur de réanimation.
+
+Les événements élémentaires pris en compte dans cet arbre sont :
+
+la défaillance des capteurs principaux,
+
+la défaillance des capteurs redondants,
+
+la défaillance des alarmes associées aux capteurs,
+
+la perte de l’alimentation électrique assurant la distribution d’énergie aux capteurs.
+
+La modélisation retenue regroupe la défaillance des capteurs principaux et celle des capteurs redondants, car c’est leur défaillance conjointe qui conduit à l’impossibilité de mesurer les paramètres physiques du flux d’oxygène. La seule défaillance des capteurs principaux n’est donc pas suffisante pour rendre le ventilateur inutilisable, dès lors que la redondance est fonctionnelle.
+
+La défaillance du circuit de distribution électrique est également intégrée dans cet arbre, car elle impacte directement le fonctionnement des capteurs et des alarmes. Les différentes sources d’alimentation de secours sont prises en compte afin de refléter la stratégie de redondance énergétique du système.
+
+Cet arbre met ainsi en évidence que la perte de la fonction de détection résulte d’une combinaison de défaillances matérielles et énergétiques, et non d’un événement isolé.
+
+[[Image:file:/C:/Users/Amina/andromeda/workspace/TESTANDROMEDA/Capture%20d'écran%202026-02-08%20225546.png|700px]]
+
+=== Arbre de défaillance lié au facteur humain ===
+
+Le second arbre de défaillance est consacré au facteur humain, en particulier à l’intervention des techniciens de santé et des électriciens. L’événement sommet correspond à l’incapacité du système à être remis en état après détection d’un dysfonctionnement.
+
+Les événements élémentaires considérés sont :
+
+l’absence ou l’indisponibilité d’un technicien de santé,
+
+l’absence ou l’indisponibilité d’un électricien,
+
+la défaillance des systèmes de détection électrique,
+
+la défaillance des systèmes de détection globale.
+
+Cet arbre traduit le fait que, même en présence de dispositifs automatiques de détection et d’alarme, la sûreté du système repose en partie sur la capacité d’intervention humaine. L’indisponibilité des compétences techniques nécessaires empêche toute action corrective, ce qui peut conduire à une défaillance finale du ventilateur.
+
+La modélisation du facteur humain comme un arbre de défaillance à part entière permet de reconnaître son rôle central dans la chaîne de sûreté et d’intégrer explicitement les limites des dispositifs techniques seuls.
+
+[[Image:file:/C:/Users/Amina/andromeda/workspace/TESTANDROMEDA/Capture%20d'écran%202026-02-08%20225722.png|700px]]
