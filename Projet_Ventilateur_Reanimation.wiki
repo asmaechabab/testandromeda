@@ -160,7 +160,7 @@ Ainsi, la sûreté du système repose sur la disponibilité des secours, la fiabilit
 [Panne du système de ventilation principal]
                 |
                 v
-[Alimentation des ventilateurs en O?]
+[Alimentation des ventilateurs en O2]
                 |
                 v
 [Détection d’anomalies par capteurs]
@@ -180,7 +180,7 @@ Cette présentation ne prend pas en compte le scénario d’une coupure d’alimentati
 [Alimentation secondaire de secours / batteries]
                 |
                 v
-[Alimentation des ventilateurs en O?]
+[Alimentation des ventilateurs en O2]
                 |
                 v
 [Détection d’anomalies par capteurs]
@@ -198,9 +198,9 @@ Cette présentation met en valeur l’importance de l’alimentation électrique dans 
 Initialement, le système de gestion des dysfonctionnements des capteurs était organisé de la manière suivante :
 
 
-• Capteurs principaux : assurent le contrôle des caractéristiques physiques du flux d’oxygène (O?), nécessaires au bon fonctionnement du système de ventilation.
+• Capteurs principaux : assurent le contrôle des caractéristiques physiques du flux d’oxygène (O2), nécessaires au bon fonctionnement du système de ventilation.
 
-• Capteurs redondants : permettent d’assurer la continuité de la fonction de mesure en cas de défaillance des capteurs principaux. Ils mesurent les paramètres intervenant dans l’évaluation du flux d’O?.
+• Capteurs redondants : permettent d’assurer la continuité de la fonction de mesure en cas de défaillance des capteurs principaux. Ils mesurent les paramètres intervenant dans l’évaluation du flux d’O2.
 
 • Systèmes d’alarme : ont pour rôle de se déclencher lors de la défaillance des capteurs principaux afin de signaler l’anomalie et permettre une intervention rapide.
 
@@ -213,7 +213,7 @@ Cette manière de faire interagir les événements au sein du système de détection 
         v
 [Capteurs principaux]
         |
-        |??> [Alarmes]
+        |---> [Alarmes]
         |
         v
 [Capteurs redondants]
@@ -241,7 +241,7 @@ Par ailleurs, à la suite du fonctionnement des systèmes d’alarme, le facteur hum
 
 === Panne de courant principale ===
 
-Notre système repose sur le fonctionnement d’un ventilateur de réanimation, dont l’objectif principal est d’assurer un apport continu et contrôlé en oxygène (O?) au patient. Le fonctionnement normal du ventilateur dépend directement de la disponibilité de l’alimentation électrique, nécessaire à l’activation des composants essentiels du système.
+Notre système repose sur le fonctionnement d’un ventilateur de réanimation, dont l’objectif principal est d’assurer un apport continu et contrôlé en oxygène (O2) au patient. Le fonctionnement normal du ventilateur dépend directement de la disponibilité de l’alimentation électrique, nécessaire à l’activation des composants essentiels du système.
 
 En effet, l’énergie électrique permet :
 
@@ -260,7 +260,7 @@ Cette défaillance entraîne une altération immédiate de la fonction de ventilatio
 
 La gestion des dysfonctionnements potentiels repose principalement sur la mise en place de sous-systèmes de secours et de redondance. Ces dispositifs ont pour objectif de prendre le relais ou de soutenir les composants principaux assurant la fonction essentielle du système, afin de maintenir un niveau de fonctionnement acceptable en cas de défaillance.
 
-Dans le cas du ventilateur de réanimation, les composants critiques au bon fonctionnement du système, notamment l’alimentation électrique, l’alimentation en oxygène (réservoir d’O?, réseau de distribution, prise murale d’oxygène) ainsi que les capteurs chargés de détecter les anomalies du flux d’oxygène, sont conçus avec des solutions redondantes. Cette architecture permet d’éviter une dépendance à une solution unique et contribue à renforcer la fiabilité globale du système.
+Dans le cas du ventilateur de réanimation, les composants critiques au bon fonctionnement du système, notamment l’alimentation électrique, l’alimentation en oxygène (réservoir d’O2, réseau de distribution, prise murale d’oxygène) ainsi que les capteurs chargés de détecter les anomalies du flux d’oxygène, sont conçus avec des solutions redondantes. Cette architecture permet d’éviter une dépendance à une solution unique et contribue à renforcer la fiabilité globale du système.
 
 Ainsi, en cas de défaillance d’un composant principal, un composant de secours peut assurer temporairement la continuité de la fonction de ventilation, limitant ainsi les conséquences sur le patient. En dernier recours, lorsque les systèmes de secours atteignent leurs limites ou deviennent indisponibles, la détection du dysfonctionnement par les systèmes d’alarme permet d’alerter le personnel médical afin de procéder à une intervention corrective, telle que la réparation ou le remplacement du composant défaillant.
 
@@ -279,7 +279,7 @@ Cette redondance vise à maintenir l’alimentation du ventilateur malgré une panne
 
 === 2. Système de détection et de surveillance ===
 
-Le diagramme intègre un système de détection basé sur des capteurs de débit, de pression et de concentration en O?. Ces capteurs assurent la surveillance continue des paramètres respiratoires.
+Le diagramme intègre un système de détection basé sur des capteurs de débit, de pression et de concentration en O2. Ces capteurs assurent la surveillance continue des paramètres respiratoires.
 
 En cas de défaillance d’un capteur principal, des capteurs redondants prennent le relais afin de garantir la continuité de la détection. Une alarme capteurs est déclenchée lorsque des anomalies ou des pannes sont détectées, permettant une réaction rapide.
 
@@ -287,7 +287,7 @@ En cas de défaillance d’un capteur principal, des capteurs redondants prennent l
 
 La partie inférieure du diagramme représente l’alimentation en oxygène. Celle-ci repose sur :
 
-* un réservoir principal d’O?,
+* un réservoir principal d’O2,
 
 * un réservoir secondaire de secours,
 
@@ -299,7 +299,7 @@ Cette architecture garantit la disponibilité de l’oxygène même en cas de défaill
 
 === 4. Gestion humaine et actions correctives ===
 
-Le diagramme met également en évidence le rôle du personnel hospitalier et des techniciens de santé. Lorsqu’un dysfonctionnement est détecté (électrique, capteurs ou alimentation en O?), une alerte permet l’intervention humaine :
+Le diagramme met également en évidence le rôle du personnel hospitalier et des techniciens de santé. Lorsqu’un dysfonctionnement est détecté (électrique, capteurs ou alimentation en O2), une alerte permet l’intervention humaine :
 
 * diagnostic de la panne,
 
@@ -414,13 +414,13 @@ Le premier arbre de défaillance est dédié au système de capteurs. L’événement so
 
 Les événements élémentaires pris en compte dans cet arbre sont :
 
-la défaillance des capteurs principaux,
+* la défaillance des capteurs principaux,
 
-la défaillance des capteurs redondants,
+* la défaillance des capteurs redondants,
 
-la défaillance des alarmes associées aux capteurs,
+* la défaillance des alarmes associées aux capteurs,
 
-la perte de l’alimentation électrique assurant la distribution d’énergie aux capteurs.
+* la perte de l’alimentation électrique assurant la distribution d’énergie aux capteurs.
 
 La modélisation retenue regroupe la défaillance des capteurs principaux et celle des capteurs redondants, car c’est leur défaillance conjointe qui conduit à l’impossibilité de mesurer les paramètres physiques du flux d’oxygène. La seule défaillance des capteurs principaux n’est donc pas suffisante pour rendre le ventilateur inutilisable, dès lors que la redondance est fonctionnelle.
 
