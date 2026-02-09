@@ -1,89 +1,172 @@
 = Étude de sûreté – Ventilateur de réanimation =
 
+''Réalisé par : Asmae CHABAB - Amina ALALGUI''
+
 == Introduction ==
 
-Le ventilateur de réanimation est un dispositif médical critique destiné à assurer ou à assister la respiration de patients en insuffisance respiratoire. En contexte de réanimation, le patient est souvent totalement dépendant de ce système pour sa survie.  
-Toute défaillance, même partielle ou de courte durée, peut entraîner des conséquences immédiates et vitales.
+Les services de réanimation accueillent des patients dont le pronostic vital peut dépendre d’un support ventilatoire continu. Le ventilateur de réanimation constitue ainsi un équipement critique, nécessitant une alimentation fiable en oxygène et en électricité.
 
-Cette étude de sûreté a pour objectif d’identifier les principaux événements initiateurs pouvant conduire à une défaillance du ventilateur, d’analyser leurs effets sur le système et sur le patient, et d’évaluer les fonctions de sûreté mises en place afin d’éviter des situations inacceptables.
+Toute interruption de cette alimentation est susceptible d’entraîner une perte de la fonction de ventilation et de mettre en danger la vie du patient.
+
+L’objectif de cette étude est d’analyser la sûreté de fonctionnement du système alimentant un ventilateur de réanimation, en identifiant les scénarios pouvant conduire à une perte de ventilation.
 
 == Description du système ==
 
-=== Système étudié ===
+Le système étudié vise à assurer la ventilation continue du patient à l’aide d’un ventilateur de réanimation. Cette fonction repose sur plusieurs sous-systèmes interdépendants dont la coordination permet de garantir la continuité de service.
 
-Le système étudié est un ventilateur de réanimation assurant la ventilation mécanique invasive d’un patient intubé.
+Le fonctionnement global du système s’appuie sur les éléments suivants :
 
-=== Composants principaux ===
+=== 1.Alimentation en oxygène ===
 
-* Source d’air et d’oxygène  
-* Système de mélange air / oxygène  
-* Valve inspiratoire  
-* Valve expiratoire  
-* Circuit patient  
-* Capteurs de pression, de débit et de volume  
-* Unité de commande et de régulation  
-* Interface patient (poumons)
+Une source principale fournit l’oxygène en conditions normales, tandis qu’une source de secours permet de maintenir l’alimentation en cas de défaillance. L’oxygène est acheminé jusqu’au ventilateur via un réseau de distribution.
 
-Chaque composant joue un rôle essentiel dans la fourniture d’un flux respiratoire adapté aux besoins physiologiques du patient.
+=== 2.Alimentation électrique ===
 
-=== Fonction principale ===
+Le circuit électrique assure le fonctionnement des équipements. Des batteries et un groupe électrogène constituent des moyens de secours destinés à préserver l’alimentation lors d’une coupure du réseau principal.
 
-La fonction principale du système est d’assurer une respiration continue, efficace et sécurisée du patient en délivrant un flux respiratoire compatible avec la physiologie humaine.
+=== 3.Système de détection ===
+
+Des capteurs surveillent les paramètres critiques et déclenchent des alarmes en cas d’anomalie, permettant une identification rapide des situations dangereuses.
+
+=== 4.Intervention humaine ===
+
+Le personnel technique peut intervenir après détection d’un dysfonctionnement afin de rétablir le fonctionnement du système.
+
+Ainsi, le système évolue entre deux états :
+
+* État fonctionnel : la ventilation du patient est assurée grâce à la disponibilité des ressources nécessaires.
+
+* État dégradé ou inutilisable : la défaillance d’un ou plusieurs sous-systèmes peut entraîner une perte de la fonction de ventilation.
 
 == Événements redoutés ==
 
-Les événements redoutés correspondent aux conséquences graves pouvant porter atteinte à la vie du patient :
+La perte de la fonction de ventilation est considérée comme l’événement redouté majeur en raison de ses conséquences potentiellement critiques pour le patient.
 
-* Lésions pulmonaires (barotraumatisme)
-* Hypoxie sévère
-* Arrêt cardio-respiratoire
-* Décès du patient
+Les principaux événements redoutés identifiés sont :
 
-Ces événements constituent les situations que l’étude de sûreté cherche à éviter.
+* Impossibilité d’assurer la ventilation du patient 
+
+Cet événement constitue l’état redouté principal, résultant d’une défaillance de l’alimentation en oxygène, de l’alimentation électrique ou du ventilateur.
+
+* Perte de l’alimentation en oxygène 
+
+L’indisponibilité simultanée de la source principale et du secours peut interrompre le flux d’oxygène nécessaire à la ventilation.
+
+* Perte de l’alimentation électrique 
+
+Une coupure du réseau principal combinée à la défaillance des systèmes de secours peut provoquer l’arrêt des équipements critiques.
+
+* Défaillance du système de détection 
+
+L’absence de détection d’une anomalie peut retarder l’intervention et aggraver la situation, augmentant le risque de perte de ventilation.
 
 == Périmètre de l’étude ==
 
-=== Éléments inclus ===
+Cette étude concerne la sûreté de fonctionnement du système assurant la ventilation d’un patient en réanimation.
 
-* Fonctionnement nominal et dégradé du ventilateur  
-* Interactions entre les composants internes  
-* Dispositifs automatiques, mécaniques et humains de sûreté  
-* Scénarios initiateurs liés à la ventilation mécanique  
+Le périmètre inclut :
 
-=== Éléments exclus ===
+* le système d’alimentation en oxygène (source principale, secours et réseau de distribution) ;
 
-* Physiopathologie détaillée du patient  
-* Traitements médicaux associés  
-* Organisation globale du service hospitalier  
-* Problématiques de cybersécurité du dispositif  
+* le système d’alimentation électrique (réseau principal, batteries et groupe électrogène) ;
+
+* le système de détection des anomalies (capteurs et alarmes) ;
+
+* l’intervention humaine en cas de dysfonctionnement ;
+
+* les interactions entre ces sous-systèmes pouvant affecter la continuité de la ventilation.
+
+Le périmètre exclut :
+
+* les défaillances internes du ventilateur ;
+
+* les pratiques et décisions médicales ;
+
+* les caractéristiques physiologiques des patients ;
+
+* les événements exceptionnels majeurs (catastrophes naturelles, incendie généralisé, etc.).
 
 == Limites de l’étude ==
 
-Cette étude repose sur plusieurs limites :
+Cette étude comporte certaines limites :
 
-* Modélisation simplifiée du patient (compliance et résistance constantes)
-* Absence de scénarios complexes de défaillances logicielles
-* Non-considération de pannes multiples indépendantes simultanées
+* Le réseau d’oxygène est modélisé de manière globale sans représenter chaque canalisation ou vanne (le terme « Distribution » regroupe l’ensemble de la tuyauterie et des vannes) ;
 
-Ces limites permettent de conserver une étude maîtrisable et cohérente.
+* Un incendie généralisé dans l’hôpital ou une catastrophe naturelle ne sont pas pris en compte ;
 
-== Hypothèses de l’étude ==
+* L’étude se limite aux défaillances techniques du système et n’intègre pas les erreurs de réglage du ventilateur.
 
-Les hypothèses suivantes sont retenues :
+== Hypothèses ==
 
-* Le ventilateur est conforme aux normes médicales en vigueur
-* Les capteurs sont fonctionnels en régime nominal
-* Les alarmes sont audibles et visibles
-* Le personnel médical est formé à l’utilisation du ventilateur
-* Une seule défaillance primaire est considérée comme événement initiateur
+* L’analyse suppose que le système fonctionne normalement au départ et que les dispositifs de protection sont disponibles avant toute défaillance.
+
+* Les sources principales et de secours en oxygène sont initialement opérationnelles ;
+
+* l’alimentation électrique fonctionne normalement et les dispositifs de secours (batteries, groupe électrogène) sont disponibles ;
+
+* Les capteurs, ainsi que les capteurs redondants, sont fonctionnels et capables de détecter une anomalie ;
+
+* La maintenance des équipements est assurée et le personnel est formé pour intervenir en cas de dysfonctionnement ;
+
+Les valeurs de probabilité ont été considérées pour une année.
+
+== Analyse qualitative ==
+
+L’analyse met en évidence que la ventilation du patient constitue la fonction critique du système. Sa perte représente le principal événement redouté, pouvant survenir lorsque les ressources essentielles ne sont plus disponibles.
+
+Le fonctionnement du ventilateur dépend fortement de l’alimentation en oxygène et en électricité. Une défaillance de la source principale peut généralement être compensée par des dispositifs de secours. Toutefois, si ces mécanismes deviennent indisponibles à leur tour, le système peut évoluer vers un état dégradé conduisant à une interruption de la ventilation.
+
+L’étude souligne également l’importance des systèmes de détection et des équipements redondants, qui contribuent à limiter le risque. Néanmoins, la combinaison de plusieurs défaillances peut compromettre la continuité du service.
+
+Ainsi, la sûreté du système repose sur la disponibilité des secours, la fiabilité des dispositifs de surveillance et la capacité d’intervention en cas d’anomalie.
+
+== Décomposition des fonctions à assurer ==
+
+{| class="wikitable"
+! Fonction !! Objectif !! Moyens associés
+|-
+| Assurer la ventilation du patient || Maintenir une oxygénation continue || Ventilateur
+|-
+| Assurer l’alimentation en oxygène || Garantir un flux d’oxygène suffisant || Source principale et source de secours
+|-
+| Assurer l’alimentation électrique || Éviter l’arrêt des équipements || Réseau électrique, batteries, groupe électrogène
+|-
+| Détecter les anomalies || Identifier rapidement toute défaillance || Capteurs
+|-
+| Permettre l’intervention || Rétablir le fonctionnement du système || Personnel technique
+|}
+
+== Fonctions de sûreté ==
+
+{| class="wikitable"
+! Fonction de sûreté !! Rôle !! Exemple de dispositif
+|-
+| Assurer la redondance || Maintenir le fonctionnement en cas de panne || Source secondaire d’oxygène
+|-
+| Détecter les défaillances || Réduire le temps de réaction face à un incident || Capteurs redondants
+|-
+| Alerter || Informer rapidement le personnel || Alarmes
+|-
+| Éviter le point de défaillance unique || Empêcher qu’une seule panne entraîne la perte de ventilation || Multiplication des sources et secours
+|-
+| Maintenir le système en mode dégradé || Permettre la continuité du service malgré une défaillance || Batteries, groupe électrogène
+|}
+
 
 == Esquisse des diagrammes d’analyses qualitatives ==
 
 === 1ère Organisation du diagramme de séquence ===
 
-[[Image:https://drive.google.com/file/d/1dr08X8TJbOMqVKJNWI_w6lXuJMxoyI4D/view?usp=sharing|600px]]
-
-
+[Panne du système de ventilation principal]
+                |
+                v
+[Alimentation des ventilateurs en O?]
+                |
+                v
+[Détection d’anomalies par capteurs]
+                |
+                v
+[Personnel hospitalier : réparation des machines de ventilation]
 
 === Limites de la présentation ===
 
@@ -91,7 +174,22 @@ Cette présentation ne prend pas en compte le scénario d’une coupure d’alimentati
 
 === 2ème Organisation du diagramme de séquence ===
 
-[[Image:file:/C:/Users/Amina/andromeda/workspace/TESTANDROMEDA/img/2.png|600px]]
+[Coupure de courant principale]
+                |
+                v
+[Alimentation secondaire de secours / batteries]
+                |
+                v
+[Alimentation des ventilateurs en O?]
+                |
+                v
+[Détection d’anomalies par capteurs]
+                |
+                v
+[Personnel hospitalier pour réparer les machines de ventilation]
+                |
+                ????????????????? Retour vers le système de ventilation
+
 
 === Mise en évidence de l’alimentation électrique ===
 
@@ -99,7 +197,6 @@ Cette présentation met en valeur l’importance de l’alimentation électrique dans 
 
 Initialement, le système de gestion des dysfonctionnements des capteurs était organisé de la manière suivante :
 
-[[Image:file:/C:/Users/Amina/andromeda/workspace/TESTANDROMEDA/img/3.png|500px]]
 
 • Capteurs principaux : assurent le contrôle des caractéristiques physiques du flux d’oxygène (O?), nécessaires au bon fonctionnement du système de ventilation.
 
@@ -111,9 +208,30 @@ Initialement, le système de gestion des dysfonctionnements des capteurs était or
 
 Cette manière de faire interagir les événements au sein du système de détection conduit à deux conséquences possibles en cas de défaillance des capteurs principaux. Toutefois, dans cette configuration, la défaillance des systèmes d’alarme ne permet pas de tirer de conclusion sur l’état du système, en particulier celui du ventilateur, ni de déterminer les mesures à entreprendre. Pour cette raison, les liaisons entre les événements ont été modifiées afin de suivre la logique suivante :
 
-[[Image:file:/C:/Users/Amina/andromeda/workspace/TESTANDROMEDA/img/5.png|500px]]
+[Détection de problème]
+        |
+        v
+[Capteurs principaux]
+        |
+        |??> [Alarmes]
+        |
+        v
+[Capteurs redondants]
+
+
 
 === Organisation retenue et logique adoptée ===
+
+[Détection de problème]
+        |
+        v
+[Capteurs principaux]
+        |
+        v
+[Capteurs redondants]
+        |
+        |??> [Alarmes]
+
 
 Cette disposition permet de regrouper la défaillance des capteurs principaux et des capteurs redondants, dans la mesure où c’est leur défaillance conjointe qui rend le ventilateur inutilisable, et non la seule défaillance des capteurs principaux.
 
@@ -310,8 +428,23 @@ La défaillance du circuit de distribution électrique est également intégrée dans
 
 Cet arbre met ainsi en évidence que la perte de la fonction de détection résulte d’une combinaison de défaillances matérielles et énergétiques, et non d’un événement isolé.
 
-[[Image:file:/C:/Users/Amina/andromeda/workspace/TESTANDROMEDA/img/Capture%20d'écran%202026-02-08%20225546.png|700px]]
-
+[Défaillance du système de capteurs]
+        |
+        v
+     (ET)
+        |
+        +?? [Capteurs principaux]
+        +?? [Capteurs redondants]
+        +?? [Alarme capteurs]
+        +?? [Défaillance du circuit électrique]
+                    |
+                    v
+                 (ET)
+                    |
+                    +?? [Alimentation 2]
+                    +?? [Alimentation 3]
+                    +?? [Panne]
+                  
 === Arbre de défaillance lié au facteur humain ===
 
 Le second arbre de défaillance est consacré au facteur humain, en particulier à l’intervention des techniciens de santé et des électriciens. L’événement sommet correspond à l’incapacité du système à être remis en état après détection d’un dysfonctionnement.
@@ -330,7 +463,40 @@ Cet arbre traduit le fait que, même en présence de dispositifs automatiques de d
 
 La modélisation du facteur humain comme un arbre de défaillance à part entière permet de reconnaître son rôle central dans la chaîne de sûreté et d’intégrer explicitement les limites des dispositifs techniques seuls.
 
-[[Image:file:/C:/Users/Amina/andromeda/workspace/TESTANDROMEDA/img/Capture%20d'écran%202026-02-08%20225722.png|700px]]
+'[Facteur humain : Techniciens de santé]'
+        |
+        v
+      (ET)
+        |
+        +?? [Indisponibilité des techniciens de santé]
+        +?? [Indisponibilité de l’électricien]
+        +?? [Défaillance de la détection électrique]
+        +?? [Défaillance du système de détection générale]
+
+== Conlusion Génerale ==
+
+Cette étude de sûreté du ventilateur de réanimation a permis d'analyser de manière approfondie les scénarios de défaillance pouvant compromettre la fonction vitale de ventilation. Les principaux enseignements peuvent être résumés comme suit :
+
+'''Résultats de l'analyse qualitative :'''
+
+La panne de courant constitue l'événement initiateur principal, capable d'affecter simultanément l'ensemble des fonctions critiques du système.
+Le système présente une forte dépendance vis-à-vis de l'alimentation électrique et de l'alimentation en oxygène, nécessitant une redondance robuste pour assurer la continuité de service.
+Les systèmes de détection et d'alarme jouent un rôle essentiel dans l'identification précoce des dysfonctionnements et la réduction des délais d'intervention.
+
+'''Apports de l'analyse quantitative :'''
+
+Les deux scénarios les plus critiques concernent les défaillances de l'alimentation électrique combinées soit à l'indisponibilité de l'électricien (36,4 %), soit à la défaillance des alimentations de secours (36,4 %).
+Le facteur humain apparaît comme un élément déterminant dans la chaîne de sûreté, l'absence de personnel qualifié empêchant toute action corrective.
+La défaillance du circuit d'oxygène, bien que moins probable, représente néanmoins un risque non négligeable (9,1 %).
+
+'''Recommandations pour l'amélioration de la sûreté :'''
+
+Renforcer la fiabilité et la maintenance préventive des alimentations de secours (batteries, groupe électrogène).
+Garantir la disponibilité permanente du personnel technique qualifié par une organisation rigoureuse des astreintes.
+Améliorer les procédures de détection et d'alerte pour réduire les temps de réaction face aux dysfonctionnements.
+Évaluer l'opportunité d'introduire des niveaux supplémentaires de redondance pour les composants les plus critiques.
+
+En définitive, cette étude confirme que la sûreté du ventilateur de réanimation repose sur trois piliers indissociables : la redondance technique des équipements, la performance des systèmes de surveillance automatisée, et la capacité d'intervention rapide du personnel qualifié. C'est la combinaison harmonieuse de ces éléments qui permet de garantir la continuité de la fonction de ventilation et la sécurité des patients en réanimation.
 
 
 
