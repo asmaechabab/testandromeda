@@ -188,7 +188,7 @@ Cette présentation ne prend pas en compte le scénario d’une coupure d’alimentati
                 v
 [Personnel hospitalier pour réparer les machines de ventilation]
                 |
-                ????????????????? Retour vers le système de ventilation
+                ?------------------------? Retour vers le système de ventilation
 
 
 === Mise en évidence de l’alimentation électrique ===
@@ -230,7 +230,7 @@ Cette manière de faire interagir les événements au sein du système de détection 
         v
 [Capteurs redondants]
         |
-        |??> [Alarmes]
+        |---> [Alarmes]
 
 
 Cette disposition permet de regrouper la défaillance des capteurs principaux et des capteurs redondants, dans la mesure où c’est leur défaillance conjointe qui rend le ventilateur inutilisable, et non la seule défaillance des capteurs principaux.
@@ -433,17 +433,17 @@ Cet arbre met ainsi en évidence que la perte de la fonction de détection résulte
         v
      (ET)
         |
-        +?? [Capteurs principaux]
-        +?? [Capteurs redondants]
-        +?? [Alarme capteurs]
-        +?? [Défaillance du circuit électrique]
+        +--- [Capteurs principaux]
+        +---[Capteurs redondants]
+        +--- [Alarme capteurs]
+        +--- [Défaillance du circuit électrique]
                     |
                     v
                  (ET)
                     |
-                    +?? [Alimentation 2]
-                    +?? [Alimentation 3]
-                    +?? [Panne]
+                    +--- [Alimentation 2]
+                    +--- [Alimentation 3]
+                    +--- [Panne]
                   
 === Arbre de défaillance lié au facteur humain ===
 
@@ -463,15 +463,15 @@ Cet arbre traduit le fait que, même en présence de dispositifs automatiques de d
 
 La modélisation du facteur humain comme un arbre de défaillance à part entière permet de reconnaître son rôle central dans la chaîne de sûreté et d’intégrer explicitement les limites des dispositifs techniques seuls.
 
-'[Facteur humain : Techniciens de santé]'
+[Facteur humain : Techniciens de santé]
         |
         v
       (ET)
         |
-        +?? [Indisponibilité des techniciens de santé]
-        +?? [Indisponibilité de l’électricien]
-        +?? [Défaillance de la détection électrique]
-        +?? [Défaillance du système de détection générale]
+        +--- [Indisponibilité des techniciens de santé]
+        +--- [Indisponibilité de l’électricien]
+        +--- [Défaillance de la détection électrique]
+        +---[Défaillance du système de détection générale]
 
 == Conlusion Génerale ==
 
